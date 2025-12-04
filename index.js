@@ -152,11 +152,4 @@ app.get('/healthz', (req, res) => {
 // Default homepage route
 app.get('/', (req, res) => res.send('Bot is running'));
 
-// ---------------- INTERNAL SELF-PING ----------------
-setInterval(() => {
-    fetch(`https://${process.env.RENDER_EXTERNAL_HOSTNAME || "localhost:" + PORT}/healthz`)
-        .then(res => console.log("🔁 Self-ping OK"))
-        .catch(err => console.log("⚠️ Self-ping failed:", err));
-}, 5 * 60 * 1000); // 5 minutes
-
 app.listen(PORT, () => console.log(`✅ Listening on port ${PORT}`));
