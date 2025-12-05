@@ -54,7 +54,7 @@ async function startBot() {
             { course: "COS 201", time: "1pm-3pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         3: [ // Wednesday
-            { course: "CSC 203", time: "8am-10am", program: "Computer Science & Software Engineering" },
+            { course: "CSC 203(Done, Revision/No Class maybe)", time: "8am-10am", program: "Computer Science & Software Engineering" },
             { course: "MTH 201", time: "10am-12pm", program: "Computer Science & Software Engineering" },
             { course: "ENT 211", time: "3pm-5pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
@@ -63,7 +63,7 @@ async function startBot() {
             { course: "SEN 201", time: "1pm-3pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         5: [ // Friday
-            { course: "MTH 201", time: "8am-10am", program: "Computer Science & Software Engineering" },
+            { course: "CSC 203(Done, Revision/No Class maybe)", time: "8am-10am", program: "Computer Science & Software Engineering" },
             { course: "IFT 211", time: "10am-12pm", program: "Computer Science & Software Engineering" }
         ]
     };
