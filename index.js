@@ -46,7 +46,6 @@ async function startBot() {
     // ---------------- Classes ----------------
     const classes = {
         1: [ // Monday
-            { course: "WSU-CSC 205", time: "8am-10am", program: "Computer Science" },
             { course: "MTH 201", time: "1pm-3pm", program: "Computer Science & Software Engineering" }
         ],
         2: [ // Tuesday
@@ -63,8 +62,7 @@ async function startBot() {
             { course: "SEN 201", time: "1pm-3pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         5: [ // Friday
-            { course: "CSC 203(Done, Revision/No Class maybe)", time: "8am-10am", program: "Computer Science & Software Engineering" },
-            { course: "IFT 211", time: "10am-12pm", program: "Computer Science & Software Engineering" }
+            { course: "Na who like school dey go class today o, I don dey go my papa house, see y'all next year, Merry Christmas and Happy New Year in advance, Happy Holidays' Everyone..." }
         ]
     };
 
