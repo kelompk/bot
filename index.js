@@ -8,6 +8,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 // ---------------- CONFIG ----------------
 const TARGET_GROUP_NAME = "Interactive computing 200lvl";
 let botActive = true;       // manual pause/resume
+let HOLIDAY_MODE = true; // true = pause daily schedule, false = allow schedule
 let groupAdmins = [];       // will be filled dynamically
 
 //-----------------------------------------
@@ -46,24 +47,26 @@ async function startBot() {
     // ---------------- Classes ----------------
     const classes = {
         1: [ // Monday
-            { course: "MTH 201", time: "1pm-3pm", program: "Computer Science & Software Engineering" }
+            { course: "WSU-CSC 205", time: "8am-10am", program: "Computer Sciece" },
+            { course: "WSU-CSC 201", time: "1pm-3pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         2: [ // Tuesday
             { course: "WSU-IFT 203", time: "8am-10am", program: "Computer Science & Software Engineering" },
             { course: "COS 201", time: "1pm-3pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         3: [ // Wednesday
-            { course: "CSC 203(Done, Revision/No Class maybe)", time: "8am-10am", program: "Computer Science & Software Engineering" },
-            { course: "MTH 201", time: "10am-12pm", program: "Computer Science & Software Engineering" },
+            { course: "CSC 203(Done, Revision/No Class)", time: "8am-10am", program: "Computer Science & Software Engineering" },
+            { course: "MTH 201(Done, Revision/No Class)", time: "10am-12pm", program: "Computer Science & Software Engineering" },
             { course: "ENT 211", time: "3pm-5pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         4: [ // Thursday
-            { course: "WSU CSC 201", time: "10am-12pm", program: "Computer Science & Software Engineering & Cyber Security" },
+            { course: "WSU-CSC 201", time: "10am-12pm", program: "Computer Science & Software Engineering & Cyber Security" },
             { course: "SEN 201", time: "1pm-3pm", program: "Computer Science, Software Engineering & Cyber Security" }
         ],
         5: [ // Friday
-            { course: "Na who like school dey go class today o, I don dey go my papa house, see y'all next year, Merry Christmas and Happy New Year in advance, Happy Holidays' Everyone..." }
-        ]
+            { course: "CSC 203(Done, Revision/No Class)", time: "8am-10am", program: "Computer Science & Software Engineering" },
+            { course: "IFT 211", time: "10am-12pm", program: "Computer Science & Software Engineering" }
+        ],
     };
 
     function formatToday() {
@@ -95,6 +98,11 @@ async function startBot() {
 
     // ---------------- Cron Job: Daily 6AM Reminder ----------------
     cron.schedule("0 5 * * 1-5", async () => {
+        if (HOLIDAY_MODE) {
+            console.log("Holiday mode active — timetable not sent");
+            return;
+        }
+
         await sendToTargetGroup(`📌 Daily Classes:\n\n${formatToday()}`);
         console.log("✅ Sent daily timetable to group");
     });
